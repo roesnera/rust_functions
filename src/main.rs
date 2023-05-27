@@ -14,19 +14,19 @@ fn main() {
     
     say_string(my_string);
 
-    // my_string should be dropped after the say_string call
+    // my_string is dropped after the say_string call
     // making the below impossible
 
     // println!("{}", my_string);
     
     // We can either clone the string (which requires duplicating the heap allocation)
-    // or borrow the reference using a function that expects a borrowed value
-
+    // or borrow the reference using a function that expects a borrowed reference
     let my_string_2 = String::from("second string here!");
     say_string_borrow(&my_string_2);
     println!("{}", my_string_2);
 
-    
+   // borrowing shares a pointer to the referenced value, which avoids entirely duplicating the
+   // object in heap memory 
 
 
     let fib_num = get_fib_at(5);
